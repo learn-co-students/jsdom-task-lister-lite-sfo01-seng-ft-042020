@@ -15,23 +15,35 @@ button {
 }
 
 #main-content {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border: 1px solid #333;
-  background: rgba(255, 255, 255, 0.3);
-  padding: 15px 20px 18px 18px;
-  border-radius: 5px;
-  box-shadow: 2px 5px 5px #333;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  transition: 0.3s;
 }
 
 #list {
   margin: 10px;
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
   background: rgba(255, 255, 255, 0.75);
   padding: 15px 20px 18px 18px;
   border-radius: 5px;
-  box-shadow: 2px 5px 5px #333;
+  /* box-shadow: 2px 5px 5px #333; */
+}
+
+
+.delete-icon {
+    padding-left: .5rem;
+    cursor: pointer;
+}
+
+li.low {
+  color: #42A5F5;
+}
+li.medium {
+  color: #FFA726;
+}
+
+li.high{
+  color: #FF5722;
 }

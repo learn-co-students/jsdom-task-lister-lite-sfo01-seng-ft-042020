@@ -1,42 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
   // your code here
   
-  const taskInput = document.getElementById("new-task-description");
-  const taskList = document.getElementById("tasks")
-  const submitButton = document.getElementById('submit')
   
-  submitButton.addEventListener('click', logSubmit)
-  const todosLength = document.querySelectorAll.length
+ 
+  listenToSubmit();
   
-  function logSubmit(event) {
-    event.preventDefault();
-    const newTask = document.getElementById("new-task-description").value
-    const newItem = document.createElement('li')
-    newItem.innerHTML = newTask 
-    newItem.setAttribute("id", `id_${todosLength}`)
-    const listItem = taskList.appendChild(newItem)
-    
-    const spanDelete = document.createElement("span");
-    spanDelete.setAttribute("id", newItem.id);
-    spanDelete.setAttribute("class", "delete");
-    spanDelete.innerHTML = "&nbsp;&#10007;&nbsp;"
+  
+  
 
-    spanDelete.onclick = deleteItem;
-    listItem.appendChild(spanDelete);
-    clearInput();
-  }
-
-
-  function clearInput() {
-    taskInput.value = ""
-
-  }
 });
 
 
+function listenToSubmit(){
+  const submitButton = document.getElementById('submit')
+  submitButton.addEventListener('click', logSubmit)
 
-function deleteItem(e) {
-  const id = e.target.id;
-  console.log("delete an item: " + id);
-  document.getElementById(id).remove();
-}         
+
+  
+}
+
+function logSubmit(event) {
+  event.preventDefault();
+  const priority = document.getElementById('priority-select').value
+  const taskList = document.getElementById("tasks")
+  const newTask = document.getElementById("new-task-description").value
+  const newItem = document.createElement('li')
+  newItem.innerHTML = newTask 
+  const iconDelete = document.createElement("i");
+  iconDelete.setAttribute("id", newItem.id);
+  iconDelete.setAttribute("class", "fa fa-window-close delete-icon");
+  newItem.appendChild(iconDelete);
+  newItem.setAttribute("class", priority.toLowerCase());
+  taskList.appendChild(newItem);
+
+  listenToDelete();
+  clearInput();
+}
+
+function clearInput() {
+  const taskInput = document.getElementById("new-task-description");  taskInput.value = ""
+
+}
+
+function listenToDelete() {
+  const listItems = document.querySelectorAll('ul li i')
+  
+  for (const li of listItems) {
+    li.addEventListener('click', function() {
+      li.parentNode.remove()
+    })
+  } 
+}
+
+function addPriorityStyle(item) {
+  console.log(item)
+}
