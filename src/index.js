@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   listenToFormSubmit();
-  listenToDeleteButton();
 });
 
 function listenToFormSubmit() {
@@ -35,6 +34,3 @@ function listenToFormSubmit() {
    });
 }
 
-function listenToDeleteButton() {
-  const taskList = document.getElementById("task")
-}
