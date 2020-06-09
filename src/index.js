@@ -1,44 +1,31 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // your code here
-  listenToFormSubmit()
 
-});
+// should be able to type a task into input field
+
+// click on the submit button
+// listen for a submit on the form element.
 
 
-function listenToFormSubmit(){
-const newTaskForm = document.getElementById("create-task-form");
-const description = document.getElementById("new-task-description");
+document.addEventListener("submit", submitButton)
 
-newTaskForm.addEventListener("submit", function (event) {
+
+
+
+function submitButton(event){
+  event.preventDefault()
+  // get the my todos container
+   let myTodos = document.getElementById("tasks")
+  //get the value of whatever is put in a textbox, assign it to a variable
+  const taskContainer = document.getElementById("new-task-description")
+  const taskValue = taskContainer.value 
   
-
-
-
-
-  event.preventDefault();
-  const descriptionText = document.getElementById("new-task-description").value
-  console.log(event)
-  console.log("form was submitted");
-
-  const descriptionEl = document.createElement("p");
-  descriptionEl.innerText = descriptionText;
-
-  const container = document.getElementById("main-content");
-  container.append(descriptionEl);
-
-
-  console.log(`${descriptionText}`)
-  descriptionText.value = "";
-
-
-
-});
-
+  
+  // add the value to the my todos container
+  myTodos.innerText += taskValue
+  console.log(myTodos)
+  // myTodos
 }
 
-
-
-
+// update the dom with whatever was put into the text field
 
 
 
